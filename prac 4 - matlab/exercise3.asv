@@ -1,0 +1,31 @@
+%%Lucas Cubas Oda - 1629507
+
+%%setting matrices and vectors
+clc
+clearvars
+
+load planets.txt;
+
+%%importing planet names
+planet_names = importdata("planetnames.txt");
+planet_names = string(planet_names);
+
+%%calculating the gravity of all planets using the function
+%%relative_gravity
+gravity_planets = relative_gravity(planets(:,1),planets(:,2))
+
+%%displaying planet names and relative gravity to 3 decimal places
+fprintf('Earth gravity = %.3f Earth gravity.\n', gravity_planets(end-6))
+fprintf('Venus gravity = %.3f Earth gravity.\n', gravity_planets(end-5))
+fprintf('Mars gravity = %.3f Earth gravity.\n', gravity_planets(end-4))
+fprintf('Jupiter gravity = %.3f Earth gravity.\n', gravity_planets(end-3))
+fprintf('Neptune gravity = %.3f Earth gravity.\n', gravity_planets(end-2))
+fprintf('Sun gravity = %.3f Earth gravity.\n', gravity_planets(end-1))
+fprintf('Moon gravity = %.3f Earth gravity.\n', gravity_planets(end))
+
+%%plotting gravities of planets
+plot(gravity_planets)
+title('Relative Gravities of Planets');
+ylabel('Earth Gravities');
+xticklabels(planet_names);
+
